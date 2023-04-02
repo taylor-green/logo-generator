@@ -13,6 +13,19 @@ describe('Circle', () => {
 // square
 describe('Sqaure', () => {
     test('renders correctly', () => {
-        
-    })
-})
+        const shape = new Square();
+        let color = ('orange');
+        shape.setColor(color);
+        expect(shape.render()).toEqual(`<rect x='50' height='200' width='200' fill='${this.color}'/>`)
+    });
+});
+
+// triangle
+describe('Triangle', () => {
+    test('renders correctly', () => {
+        const shape = new Triangle();
+        let color = ('blue')
+        shape.setColor(color);
+        expect(shape.render()).toEqual(`polygon height='100%' width='100%' points='0,200 300,200 150,0' fill='${this.color}'/>`)
+    });
+ });
