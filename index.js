@@ -46,3 +46,13 @@ const prompts = [
      
     },
 ];
+
+function writeToFile(fileName, data) {
+    console.log('Writing [' + data +'] to file [' + fileName + ']')
+   fs.writeFile(fileName, data, function (err){
+    if (err{
+        return console.log(err);
+    }  
+  });
+   
+}
