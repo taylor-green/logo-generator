@@ -56,3 +56,32 @@ function writeToFile(fileName, data) {
   });
    
 }
+
+async function init () {
+    console.log('Initilizing');
+     let svgText = ''
+     let svgFile = 'logo.svg';
+
+     const answers = await inquirer.prompt(questions);
+
+
+        let userText = ''
+            if(answers.text.length > 0 && answers.text.length < 4){
+                userText = answers.text;
+            }else{
+                console.log('Only 3 characters permitted');
+                return;
+            }  
+                    console.log("User text: [" + user_text + "]");
+	                //user font color
+	                user_font_color = answers["text-color"];
+	                console.log("User font color: [" + user_font_color + "]");
+	                //user shape color
+	                user_shape_color = answers.shape;
+	                console.log("User shape color: [" + user_shape_color + "]");
+	                //user shape type
+	                user_shape_type = answers["pixel-image"];
+	                console.log("User entered shape = [" + user_shape_type + "]");
+	
+            }
+
