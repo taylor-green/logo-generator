@@ -47,10 +47,11 @@ const prompts = [
     },
 ];
 
+// write the data to the file
 function writeToFile(fileName, data) {
     console.log('Writing [' + data +'] to file [' + fileName + ']')
    fs.writeFile(fileName, data, function (err){
-    if (err{
+    if (err) {
         return console.log(err);
     }  
   });
@@ -72,16 +73,36 @@ async function init () {
                 console.log('Only 3 characters permitted');
                 return;
             }  
-                    console.log("User text: [" + user_text + "]");
+                    console.log('User text: [' + user_text + ']');
 	                //user font color
-	                user_font_color = answers["text-color"];
-	                console.log("User font color: [" + user_font_color + "]");
+	                user_font_color = answers['text-color'];
+	                console.log('User font color: [' + user_font_color + ']');
 	                //user shape color
 	                user_shape_color = answers.shape;
-	                console.log("User shape color: [" + user_shape_color + "]");
+	                console.log('User shape color: [' + user_shape_color + ']');
 	                //user shape type
-	                user_shape_type = answers["pixel-image"];
-	                console.log("User entered shape = [" + user_shape_type + "]");
+	                user_shape_type = answers['pixel-image'];
+	                console.log('User entered shape = [' + user_shape_type + ']');
+
+        // user shape selector
+        let userShape;
+        if(user_shape_type === 'Square' || user_shape_type === 'sqaure'){
+            userShape = new Square ();
+            console.log('User selected Square');
+        }
+        else if (user_shape_type === "Circle" || user_shape_type === "circle") {
+            user_shape = new Circle();
+            console.log('User selected Circle');
+        }
+        else if (user_shape_type === 'Triangle' || user_shape_type === 'triangle') {
+            user_shape = new Triangle();
+            console.log('User selected Triangle');
+        }
+        else {
+            console.log('Invalid shape!');
+        }
+        user_shape.setColor(user_shape_color);  
+        }
 	
             }
 
